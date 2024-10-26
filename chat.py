@@ -26,7 +26,7 @@ st.markdown(
     }
     .divider {
         border-top: 2px solid #a3a3a3;
-        margin: 10px 0;
+        margin: 0px 0;
         max-width: 900px;
         margin-left: auto;
         margin-right: auto;
@@ -39,17 +39,30 @@ st.markdown(
         margin-bottom: 20px; /* 아래쪽 여백 추가 */
     }
     .post-it {
-        position: fixed;  /* 고정 위치 */
-        background-color: #FFD732; /* 포스트잇 노란색 */
+        position: fixed;
+        display: inline-block;
+        padding: 20px 45px 20px 15px;
+        width: 260px; /* 포스트잇 너비 */
+        margin: 5px 0;
         border: 1px solid #f8f861;
-        border-radius: 10px; /* 모서리 둥글게 */
-        padding: 20px; /* 패딩 추가 */
-        width: 200px; /* 포스트잇 너비 */
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
-        font-family: 'Nanum Brush Script', cursive; /* Nanum Brush Script 폰트 사용 */
-        color: #555; /* 글씨 색상 */
-        font-size: 19px;  /* 폰트 크기를 18px로 설정 */
+        border-left: 30px solid #f8f861;
+        border-bottom-right-radius: 60px 10px;
+        font-family: 'Nanum Pen Script';
+        font-size: 13px;
+        color: #555;
+        word-break: break-all;
+        background: #ffff88; /* Old browsers */
+        background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right bottom, color-stop(81%, #ffff88), color-stop(82%, #ffff88), color-stop(82%, #ffff88), color-stop(100%, #ffffc6)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* IE10+ */
+        background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff88', endColorstr='#ffffc6', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s;
     }
+
     .post-it.top-right {
         top: 200px; /* 위에서 20px */
         right: 130px; /* 오른쪽에서 20px */
@@ -59,7 +72,7 @@ st.markdown(
         right: 130px; /* 오른쪽에서 20px */
     }
     .post-it.bottom-left {
-        bottom: 300px; /* 아래에서 20px */
+        bottom: 330px; /* 아래에서 20px */
         left: 130px; /* 왼쪽에서 20px */
     }
     .message-container {
@@ -90,6 +103,7 @@ st.markdown('<h1>함께 오늘을 이야기해 보아요</h1>', unsafe_allow_htm
 st.markdown('<h2>결코 감정에 정답을 찾지 않으셔도 돼요🌞.</h2>', unsafe_allow_html=True)
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 # 포스트잇 내용 예시
+
 st.markdown('<div class="post-it top-right">항상 파이팅!', unsafe_allow_html=True)
 st.markdown('<div class="post-it bottom-right">가장 어두운 순간에 우리는 빛을 찾을 수 있다<br>Ronald Reagan</div>', unsafe_allow_html=True)
 st.markdown('<div class="post-it bottom-left">등불을 잃지 않았으면 좋겠어</div>', unsafe_allow_html=True)
