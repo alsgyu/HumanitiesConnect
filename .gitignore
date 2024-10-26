@@ -1,0 +1,7 @@
+.env
+<<<<<<< HEAD
+__pycache__/
+venv/
+=======
+__pycache__/
+>>>>>>> c37c655d903f1b878aade485044dc70742323cf3
