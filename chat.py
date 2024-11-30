@@ -84,14 +84,14 @@ st.markdown(
         justify-content: flex-start; /* AI 메시지는 왼쪽 정렬 */
     }
     .message {
-        background-color: #1E82FF; /* 사용자 메시지 배경색 */
+        background-color: #6AC793; /* 사용자 메시지 배경색 */
         border-radius: 10px; /* 모서리 둥글게 */
         padding: 10px; /* 패딩 추가 */
         color: white; /* 검정색 글씨 */
         max-width: 450px; /* 최대 너비 설정 */
     }
     .message.ai {
-        background-color: #d2d2d2; /* AI 메시지 배경색 */
+        background-color: #b4b4b4; /* AI 메시지 배경색 */
     }
     </style>
     """,
@@ -105,7 +105,7 @@ st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 # 포스트잇 내용 예시
 
 st.markdown('<div class="post-it top-right">항상 파이팅!', unsafe_allow_html=True)
-st.markdown('<div class="post-it bottom-right">가장 어두운 순간에 우리는 빛을 찾을 수 있다<br>Ronald Reagan</div>', unsafe_allow_html=True)
+st.markdown('<div class="post-it bottom-right">너무 심각할 것 없어<br>잘 될거야<br>시간을 가져<br><br><피너츠></div>', unsafe_allow_html=True)
 st.markdown('<div class="post-it bottom-left">등불을 잃지 않았으면 좋겠어</div>', unsafe_allow_html=True)
 
 load_dotenv()
@@ -120,18 +120,19 @@ ai_profile_pic = "https://www.shutterstock.com/shutterstock/photos/2314900373/di
 
 for message in st.session_state.message_list:
     if message["role"] == "user":
-        st.markdown(f'<div class="message-container"><div class="message"><img src="{user_profile_pic}" style="width: 22px; height: 22px; border-radius: 50%; margin-right: 10px; vertical-align: top;"/>'
-                    f'<strong></strong> {message["content"]}</div></div>', unsafe_allow_html=True)
-    else:
+        st.markdown(f'<div class="message-container"><div class="message">'
+                    f'<strong></strong> {message["content"]}<img src="{user_profile_pic}" style="width: 25px; height: 25px; border-radius: 50%; margin-left: 5px; margin-right: 10px; vertical-align: top;"/></div></div>', unsafe_allow_html=True)
+    else: 
         st.markdown(f'<div class="message-container ai"><div class="message ai"><img src="{ai_profile_pic}" style="width: 22px; height: 22px; border-radius: 50%; margin-right: 10px; vertical-align: middle;"/>'
                     f'<strong>:</strong> {message["content"]}</div></div>', unsafe_allow_html=True)
+
 
 # 사용자 입력 받기
 if user_input := st.chat_input(placeholder="오늘을 이야기해 주세요 어떠셨나요?"):
     st.session_state.message_list.append({"role": "user", "content": user_input})
 
     st.markdown(f'<div class="message-container"><div class="message">'
-                f'<strong></strong> {user_input} <img src="{user_profile_pic}" style="width: 22px; height: 22px; border-radius: 50%; left-right: 30px; margin-right: 0px; vertical-align: middle;"/>', unsafe_allow_html=True)
+                f'<strong></strong> {user_input}  <img src=" {user_profile_pic}" style="width: 25px; height: 25px; border-radius: 50%; margin-left: 5px; margin-right: 0px; vertical-align: middle;"/>', unsafe_allow_html=True)
 
     with st.spinner("응답을 생성하는 중입니다..."):
         try:
@@ -141,7 +142,7 @@ if user_input := st.chat_input(placeholder="오늘을 이야기해 주세요 어
             # AI 응답을 표시합니다.
             if ai_response:  # AI 응답이 None이 아닐 경우에만
                 st.session_state.message_list.append({"role": "ai", "content": ai_response})
-                st.markdown(f'<div class="message-container ai"><div class="message ai"><img src="{ai_profile_pic}" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 10px; vertical-align: middle;"/>'
+                st.markdown(f'<div class="message-container ai"><div class="message ai"><img src="{ai_profile_pic}" style="width: 25px; height: 25px; border-radius: 50%; margin-right: 10px; vertical-align: middle;"/>'
                             f'<strong></strong> {ai_response}</div></div>', unsafe_allow_html=True)
             else:
                 st.error("AI로부터 응답을 받지 못했습니다. 다시 시도해 주세요.")
