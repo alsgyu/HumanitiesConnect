@@ -14,14 +14,24 @@ store = {}
 # 감정 분석 함수
 def initialize_emotion_analyzer():
     try:
-        tokenizer = AutoTokenizer.from_pretrained("beomi/KcBERT-base")
-        model = AutoModelForSequenceClassification.from_pretrained("beomi/KcBERT-base")
+        # 로컬 디렉토리에서 모델과 토크나이저 로드
+        tokenizer = AutoTokenizer.from_pretrained("D:\wow\fine_tuned_model\fine_tuned_model")  # 로컬 경로 지정
+        model = AutoModelForSequenceClassification.from_pretrained("./fine_tuned_model")  # 로컬 경로 지정
         return pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
     except Exception as e:
         print(f"Failed to load emotion analyzer: {e}")
         return None
 
+# 파이프라인 초기화
 emotion_analyzer = initialize_emotion_analyzer()
+
+# 테스트: 감정 분석
+if emotion_analyzer:
+    sample_text = "오늘 하루가 정말 즐거웠어요!"
+    result = emotion_analyzer(sample_text)
+    print(f"Input: {sample_text}\nAnalysis Result: {result}")
+else:
+    print("Emotion analyzer is not initialized.")
 
 def analyze_emotion(user_input: str) -> str:
     if not emotion_analyzer:
