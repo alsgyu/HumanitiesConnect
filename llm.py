@@ -14,9 +14,9 @@ store = {}
 # 감정 분석 함수
 def initialize_emotion_analyzer():
     try:
-        # 로컬 디렉토리에서 모델과 토크나이저 로드
-        tokenizer = AutoTokenizer.from_pretrained("D:\wow\fine_tuned_model\fine_tuned_model")  # 로컬 경로 지정
-        model = AutoModelForSequenceClassification.from_pretrained("./fine_tuned_model")  # 로컬 경로 지정
+        # 업로드된 Hugging Face 모델에서 로드
+        tokenizer = AutoTokenizer.from_pretrained("alsgyu/sentiment-analysis-fine-tuned-model")  # Hugging Face 레포지토리 경로
+        model = AutoModelForSequenceClassification.from_pretrained("alsgyu/sentiment-analysis-fine-tuned-model")  # Hugging Face 레포지토리 경로
         return pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
     except Exception as e:
         print(f"Failed to load emotion analyzer: {e}")
