@@ -12,5 +12,11 @@ sample_text = "오늘은 제 생일이었어요!"
 # 감정 분석
 result = analyzer(sample_text)
 
-# 결과 출력
-print(f"Input: {sample_text}\nAnalysis Result: {result}")
+label_mapping = {
+    "LABEL_0": "부정",
+    "LABEL_1": "중립",
+    "LABEL_2": "긍정"
+}
+
+result_label = label_mapping[result[0]['label']]
+print(f"Input: {sample_text}\nAnalysis Result: {result_label} (Score: {result[0]['score']:.2f})")
