@@ -5,7 +5,7 @@
 
 인문학은 철학, 문학, 예술 등의 자료를 통해 감정을 이해하므로써, 마음의 안정을 찾는 데 기여할 수 있습니다. 이러한 인문학적 접근을 기반으로, 사용자와 더욱 깊은 공감을 이끌어내는 것을 목표로 합니다.
 
-#### 프로젝트 주제선정 배경 및 소개자료
+#### 프로젝트 주제선정 배경 및 소개
 - [alsgyu chat_humanity.pdf](https://github.com/user-attachments/files/18022600/alsgyu.chat_humanity.pdf)
 <br/>
 
