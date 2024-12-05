@@ -148,7 +148,7 @@ if user_input := st.chat_input(placeholder="오늘을 이야기해 주세요 어
     st.markdown(f'<div class="message-container"><div class="message">'
                 f'<strong></strong> {user_input}  <img src=" {user_profile_pic}" style="width: 22px; height: 22px; border-radius: 50%; margin-left: 5px; margin-right: 0px; vertical-align: top;"/>', unsafe_allow_html=True)
 
-    with st.spinner("답변을 생각하고 있어요..."):
+    with st.spinner("답변을 작성하고 있어요..."):
         try:
             # AI 응답 생성
             ai_response = get_ai_response(user_input)
