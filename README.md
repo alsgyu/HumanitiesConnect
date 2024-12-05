@@ -56,18 +56,23 @@ Pinecone을 활용하여 인문학 자료를 효율적으로 사용할 수 있�
 ### 설치 과정
 1. **프로젝트 클론**
    ```bash
-   cd [저장소 이름]
    git clone https://github.com/alsgyu/chat_humanity.git
-2. 필요 라이브러리 설치
+   cd chat_humanity
+2. 가상환경 생성과 사용
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+
+4. 필요 라이브러리 설치
    ```bash
    pip install -r requirements.txt
-4. 환경 변수 설정
+5. 환경 변수 설정
    ```bash
    PINECONE_API_KEY=your_pinecone_key
    OPENAI_API_KEY=your_openai_key
-5. 프로그램 실행
+6. 프로그램 실행
    ```bash
-   python main.py
+   streamlit run main.py
 
 ---
 ## 세부 준비 과정
@@ -114,16 +119,11 @@ Pinecone을 활용하여 인문학 자료를 효율적으로 사용할 수 있�
 ---
 
 ## 보안 및 개인정보 보호
-이 프로젝트는 보안과 개인정보 보호를 중요하게 고려하여 설계되었습니다.
+보안과 개인정보 보호를 중요하게 고려하여 설계되었습니다.
 
 - 최신 보안 패치가 적용된 라이브러리를 사용합니다.
 - API 키는 .env 파일을 통해 안전하게 관리됩니다.
 - 사용자 입력 데이터는 대화 세션 동안만 유지되며 외부에 저장되지 않습니다.
-
----
-## 기여 및 문의
-오픈소스 커뮤니티와의 협력을 환영합니다!
-Pull Request: 새로운 기능 추가나 버그 수정을 제안해 주세요.
 
 ---
 
