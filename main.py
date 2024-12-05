@@ -1,6 +1,8 @@
 import streamlit as st
 from dotenv import load_dotenv
 from llm import get_ai_response, analyze_emotion
+from PIL import Image
+import base64
 
 st.set_page_config(page_title="정신 건강 인문학 앱")
 
@@ -115,15 +117,27 @@ if 'message_list' not in st.session_state:
 
 
 user_profile_pic = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5726%2F5726399.png&type=sc960_832"  # 사용자 프로필 사진
-ai_profile_pic = "https://www.shutterstock.com/shutterstock/photos/2314900373/display_1500/stock-vector-anthropology-thick-line-filled-colors-for-personal-and-commercial-use-2314900373.jpg"  # AI 프로필 사진
+ai_profile_pic_path = "C:/Users/host0/foryou/for_you/ai_image.jpg"
 
+# 로컬 이미지(Base64로 변환)
+def image_to_base64(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode("utf-8")
+
+ai_image_base64 = image_to_base64(ai_profile_pic_path)
+ai_image_html = f"data:image/jpeg;base64,{ai_image_base64}"
+
+
+# 세션 상태 초기화
+if "message_list" not in st.session_state:
+    st.session_state.message_list = []
 
 for message in st.session_state.message_list:
     if message["role"] == "user":
         st.markdown(f'<div class="message-container"><div class="message">'
-                    f'<strong></strong> {message["content"]}<img src="{user_profile_pic}" style="width: 25px; height: 25px; border-radius: 50%; margin-left: 5px; margin-right: 10px; vertical-align: top;"/></div></div>', unsafe_allow_html=True)
+                    f'<strong></strong> {message["content"]}<img src="{user_profile_pic}" style="width: 22px; height: 22px; border-radius: 50%; margin-left: 5px; margin-right: 0px; vertical-align: top;"/></div>', unsafe_allow_html=True)
     else: 
-        st.markdown(f'<div class="message-container ai"><div class="message ai"><img src="{ai_profile_pic}" style="width: 22px; height: 22px; border-radius: 50%; margin-right: 10px; vertical-align: middle;"/>'
+        st.markdown(f'<div class="message-container ai"><div class="message ai"><img src="{ai_image_html}" style="width: 25px; height: 25px; border-radius: 50%; margin-right: 0px; vertical-align: middle;"/>'
                     f'<strong>:</strong> {message["content"]}</div></div>', unsafe_allow_html=True)
 
 
@@ -132,9 +146,9 @@ if user_input := st.chat_input(placeholder="오늘을 이야기해 주세요 어
     st.session_state.message_list.append({"role": "user", "content": user_input})
 
     st.markdown(f'<div class="message-container"><div class="message">'
-                f'<strong></strong> {user_input}  <img src=" {user_profile_pic}" style="width: 25px; height: 25px; border-radius: 50%; margin-left: 5px; margin-right: 0px; vertical-align: middle;"/>', unsafe_allow_html=True)
+                f'<strong></strong> {user_input}  <img src=" {user_profile_pic}" style="width: 22px; height: 22px; border-radius: 50%; margin-left: 5px; margin-right: 0px; vertical-align: top;"/>', unsafe_allow_html=True)
 
-    with st.spinner("응답을 생성하는 중입니다..."):
+    with st.spinner("답변을 생각하고 있어요..."):
         try:
             # AI 응답 생성
             ai_response = get_ai_response(user_input)
@@ -142,7 +156,7 @@ if user_input := st.chat_input(placeholder="오늘을 이야기해 주세요 어
             # AI 응답을 표시합니다.
             if ai_response:  # AI 응답이 None이 아닐 경우에만
                 st.session_state.message_list.append({"role": "ai", "content": ai_response})
-                st.markdown(f'<div class="message-container ai"><div class="message ai"><img src="{ai_profile_pic}" style="width: 25px; height: 25px; border-radius: 50%; margin-right: 10px; vertical-align: middle;"/>'
+                st.markdown(f'<div class="message-container ai"><div class="message ai"><img src="{ai_image_html}" style="width: 25px; height: 25px; border-radius: 50%; margin-right: 0px; vertical-align: middle;"/>'
                             f'<strong></strong> {ai_response}</div></div>', unsafe_allow_html=True)
             else:
                 st.error("AI로부터 응답을 받지 못했습니다. 다시 시도해 주세요.")
