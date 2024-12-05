@@ -95,7 +95,7 @@ Pinecone을 활용하여 인문학 자료를 효율적으로 사용할 수 있�
 주피터 노트북을 이용한 학습코드 https://github.com/alsgyu/finetunning_huggingface
 
 ### Hugging Face 허브 업로드
-파인튜닝된 모델은 Hugging Face 허브에 업로드하여 로컬 환경 설정 없이 누구나 쉽게 사용할 수 있도록 하였습니다.
+파인튜닝된 모델은 Hugging Face 허브에 업로드하여 로컬 환경 설정 없이 간편히 사용할 수 있도록 하였습니다.
 
 업로드 경로: https://huggingface.co/alsgyu/sentiment-analysis-fine-tuned-model/tree/main
 
