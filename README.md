@@ -6,8 +6,8 @@
 인문학은 철학, 문학, 예술 등의 자료를 통해 감정을 이해하므로써, 마음의 안정을 찾는 데 기여할 수 있습니다. 이러한 인문학적 접근을 기반으로, 사용자와 더욱 깊은 공감을 이끌어내는 것을 목표로 합니다.
 <br/>
 
-#### 프로젝트 주제 선정 배경 및 소개
-소개자료: [LangChain 기반 감정 분석 및 인문학적 대화 프로젝트 소개.pdf](https://github.com/user-attachments/files/18011253/LangChain.pdf)
+##### 프로젝트 주제 선정 배경 및 소개
+**소개자료**: [LangChain 기반 감정 분석 및 인문학적 대화 프로젝트 소개.pdf](https://github.com/user-attachments/files/18011253/LangChain.pdf)
 
 ---
 ## 프로젝트의 목적
@@ -17,7 +17,7 @@
 
 <br/>
 
-이 프로젝트는 오픈소스 기반으로 시작하였고, Streamlit을 기반으로 사용자 인터페이스를 설계하였습니다.<br/>
+이 프로젝트는 오픈소스를 기반으로 시작되었고, Streamlit을 기반으로 사용자 인터페이스를 설계하였습니다.<br/>
 
 **오픈소스 출처** : https://github.com/jasonkang14/streamlit-korean-income-tax-rag<br/>
 **활용 내용**: LangChain 및 Pinecone 기반 검색 시스템을 활용하였습니다.
