@@ -6,7 +6,6 @@ import base64
 
 st.set_page_config(page_title="정신 건강 인문학 앱")
 
-# Nunito 폰트를 포함한 배경색 및 글씨 색상 변경
 st.markdown(
     """
     <style>
@@ -100,11 +99,9 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# HTML로 직접 타이틀과 캡션 설정
 st.markdown('<h1>함께 오늘을 이야기해 보아요</h1>', unsafe_allow_html=True)
 st.markdown('<h2>결코 감정에 정답을 찾지 않으셔도 돼요🌞.</h2>', unsafe_allow_html=True)
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-# 포스트잇 내용 예시
 
 st.markdown('<div class="post-it top-right">항상 파이팅!', unsafe_allow_html=True)
 st.markdown('<div class="post-it bottom-right">너무 심각할 것 없어<br>잘 될거야<br>시간을 가져<br><br><피너츠></div>', unsafe_allow_html=True)
@@ -119,7 +116,6 @@ if 'message_list' not in st.session_state:
 user_profile_pic = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5726%2F5726399.png&type=sc960_832"  # 사용자 프로필 사진
 ai_profile_pic_path = "C:/Users/host0/foryou/for_you/ai_image.jpg"
 
-# 로컬 이미지(Base64로 변환)
 def image_to_base64(image_path):
     with open(image_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode("utf-8")
@@ -128,7 +124,6 @@ ai_image_base64 = image_to_base64(ai_profile_pic_path)
 ai_image_html = f"data:image/jpeg;base64,{ai_image_base64}"
 
 
-# 세션 상태 초기화
 if "message_list" not in st.session_state:
     st.session_state.message_list = []
 
@@ -141,7 +136,7 @@ for message in st.session_state.message_list:
                     f'<strong>:</strong> {message["content"]}</div></div>', unsafe_allow_html=True)
 
 
-# 사용자 입력 받기
+# 사용자 입력
 if user_input := st.chat_input(placeholder="오늘을 이야기해 주세요 어떠셨나요?"):
     st.session_state.message_list.append({"role": "user", "content": user_input})
 
@@ -150,11 +145,10 @@ if user_input := st.chat_input(placeholder="오늘을 이야기해 주세요 어
 
     with st.spinner("답변을 작성하고 있어요..."):
         try:
-            # AI 응답 생성
+            # 답변
             ai_response = get_ai_response(user_input)
 
-            # AI 응답을 표시합니다.
-            if ai_response:  # AI 응답이 None이 아닐 경우에만
+            if ai_response:  
                 st.session_state.message_list.append({"role": "ai", "content": ai_response})
                 st.markdown(f'<div class="message-container ai"><div class="message ai"><img src="{ai_image_html}" style="width: 25px; height: 25px; border-radius: 50%; margin-right: 0px; vertical-align: middle;"/>'
                             f'<strong></strong> {ai_response}</div></div>', unsafe_allow_html=True)
