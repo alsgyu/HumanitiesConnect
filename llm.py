@@ -11,7 +11,6 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipe
 
 store = {}
 
-# 감정 분석 함수
 def initialize_emotion_analyzer():
     try:
         # 업로드된 Hugging Face 모델에서 로드
@@ -22,10 +21,8 @@ def initialize_emotion_analyzer():
         print(f"Failed to load emotion analyzer: {e}")
         return None
 
-# 파이프라인 초기화
 emotion_analyzer = initialize_emotion_analyzer()
 
-# 테스트: 감정 분석
 if emotion_analyzer:
     sample_text = "오늘 하루가 정말 즐거웠어요!"
     result = emotion_analyzer(sample_text)
@@ -87,7 +84,6 @@ def get_rag_chain():
     llm = get_llm()
     retriever = get_retriever()
 
-    # 기존의 시스템 프롬프트 유지
     system_prompt = (
         "당신은 인문학 관점에서 정신건강을 관리해주는 분야에서 전문가입니다."
         "당신은 사용자의 친구이기 때문에 인문학 견해보다 일상적인 대화가 우선입니다."
@@ -176,10 +172,9 @@ def recommend_resources(emotion: str):
     return resources.get(emotion, ["일상대화를 할게요"])
 
 def get_ai_response(user_message: str, session_id: str = "default"):
-    emotion = analyze_emotion(user_message) # 감정 분석하기
+    emotion = analyze_emotion(user_message) 
     recommended_resources = recommend_resources(emotion) # 추천자료 가져오기
 
-    # dictionary_chain 활용 - 질문 수정
     dictionary_chain = get_dictionary_chain()
     refined_question = dictionary_chain.invoke({"question": user_message})
 
