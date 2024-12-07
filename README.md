@@ -48,7 +48,7 @@ LangChain의 Retrieval-Augmented Generation 시스템을 확장하여 Few-Shot P
 ### 설치 과정
 1. **프로젝트 클론**
    ```bash
-   git clone https://github.com/alsgyu/chat_humanity.git
+   git clone https://github.com/alsgyu/HumanitiesConnect.git
    cd chat_humanity
 2. 가상환경 생성과 사용
    ```bash
