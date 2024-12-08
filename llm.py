@@ -12,6 +12,7 @@ import pinecone
 from pinecone import Pinecone, ServerlessSpec
 from dotenv import load_dotenv
 import os
+import streamlit as st
 
 store = {}
 
@@ -44,21 +45,17 @@ def analyze_emotion(user_input: str) -> str:
 # 환경 변수 로드
 load_dotenv()
 
+# Pinecone 초기화
 api_key = os.getenv("PINECONE_API_KEY")
 environment = os.getenv("PINECONE_ENVIRONMENT")
 
 pinecone_client = Pinecone(api_key=api_key)
 
-if "foryou" not in pinecone_client.list_indexes().names():
-    pinecone_client.create_index(
-        name="foryou",
-        dimension=3072,  
-        metric="cosine",  
-        spec=ServerlessSpec(
-            cloud="aws", 
-            region=environment  
-        )
-    )
+# Streamlit 실행 코드
+st.title("Pinecone Integration with Streamlit")
+
+# Pinecone 인덱스 확인
+st.write("Existing Pinecone indexes:", pinecone_client.list_indexes().names())
 
 # 전역 변수
 embedding = None
