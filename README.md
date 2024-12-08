@@ -66,10 +66,10 @@ LangChain의 Retrieval-Augmented Generation 시스템을 확장하여 Few-Shot P
    ```bash
    streamlit run main.py
    
-### streamlit을 활용한 배포
+### Streamlit을 활용한 배포
 - https://alsgyu-humanitiesconnect.streamlit.app/
-  
-현재는 pinecone과 streamlit의 연동 오류가 있어 원활한 실행이 되지 않습니다. 추후 수정하도록 하겠습니다.
+
+현재 pinecone과 streamlit간의 연동 오류가 있어 원활한 실행이 되지 않습니다. 계속해서 수정해나가겠습니다.
 
 ### 프로젝트 구조
 ```
