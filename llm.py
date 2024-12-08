@@ -8,6 +8,10 @@ from langchain_pinecone import PineconeVectorStore
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
+import pinecone
+from pinecone import Pinecone, ServerlessSpec
+from dotenv import load_dotenv
+import os
 
 store = {}
 
@@ -37,15 +41,42 @@ def analyze_emotion(user_input: str) -> str:
     return result[0]['label']
 
 
+# 환경 변수 로드
+load_dotenv()
+
+api_key = os.getenv("PINECONE_API_KEY")
+environment = os.getenv("PINECONE_ENVIRONMENT")
+
+pinecone_client = Pinecone(api_key=api_key)
+
+if "foryou" not in pinecone_client.list_indexes().names():
+    pinecone_client.create_index(
+        name="foryou",
+        dimension=3072,  
+        metric="cosine",  
+        spec=ServerlessSpec(
+            cloud="aws", 
+            region=environment  
+        )
+    )
+
+# 전역 변수
 embedding = None
 retriever = None
 
 def get_retriever():
+    """Pinecone retriever를 초기화하고 반환합니다."""
     global embedding, retriever
+
     if not embedding:
-        embedding = OpenAIEmbeddings(model='text-embedding-3-large')
+        embedding = OpenAIEmbeddings(model="text-embedding-3-large")  # 모델 이름 확인 필요
+
     if not retriever:
-        retriever = PineconeVectorStore.from_existing_index(index_name='foryou', embedding=embedding).as_retriever(search_kwargs={'k': 4})
+        retriever = PineconeVectorStore.from_existing_index(
+            index_name="foryou",  # Pinecone 인덱스 이름
+            embedding=embedding
+        ).as_retriever(search_kwargs={"k": 4})
+
     return retriever
 
 
