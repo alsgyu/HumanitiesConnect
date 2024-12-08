@@ -2,6 +2,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from llm import get_ai_response, analyze_emotion
 from PIL import Image
+import requests
 import base64
 
 st.set_page_config(page_title="정신 건강 인문학 앱")
@@ -114,14 +115,40 @@ if 'message_list' not in st.session_state:
 
 
 user_profile_pic = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5726%2F5726399.png&type=sc960_832"  # 사용자 프로필 사진
-ai_profile_pic_path = "images/ai_image.jpg"
+ai_profile_pic_path = "https://drive.google.com/uc?id=10C5OzMzSAXUU0mhgch5eFfSAEHHiA47X"
 
+# URL 또는 로컬 파일을 Base64로 변환
 def image_to_base64(image_path):
-    with open(image_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode("utf-8")
+    try:
+        if image_path.startswith("http://") or image_path.startswith("https://"):
+            # URL에서 이미지 다운로드
+            response = requests.get(image_path)
+            response.raise_for_status()  # 요청 실패 시 예외 발생
+            image_data = response.content
+        else:
+            # 로컬 파일에서 읽기
+            with open(image_path, "rb") as img_file:
+                image_data = img_file.read()
+        
+        # Base64 인코딩
+        return base64.b64encode(image_data).decode("utf-8")
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching image from URL: {e}")
+        return None
+    except FileNotFoundError:
+        print(f"File not found: {image_path}")
+        return None
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return None
 
+# AI 이미지 Base64 변환
 ai_image_base64 = image_to_base64(ai_profile_pic_path)
-ai_image_html = f"data:image/jpeg;base64,{ai_image_base64}"
+if ai_image_base64:
+    ai_image_html = f"data:image/jpeg;base64,{ai_image_base64}"
+    print("Image successfully converted to Base64.")
+else:
+    print("Image conversion failed.")
 
 
 if "message_list" not in st.session_state:
