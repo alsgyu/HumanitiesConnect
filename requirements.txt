@@ -60,7 +60,8 @@ multidict==6.1.0
 mypy-extensions==1.0.0
 narwhals==1.15.1
 networkx==3.4.2
-numpy==1.23.5
+numpy>=1.24.0; python_version >= "3.12"
+numpy==1.23.5; python_version < "3.12"
 openai==1.55.3
 opt_einsum==3.4.0
 orjson==3.10.12
