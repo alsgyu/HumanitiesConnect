@@ -114,7 +114,7 @@ if 'message_list' not in st.session_state:
 
 
 user_profile_pic = "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F5726%2F5726399.png&type=sc960_832"  # 사용자 프로필 사진
-ai_profile_pic_path = "C:/Users/host0/foryou/for_you/images/ai_image.jpg"
+ai_profile_pic_path = "images/ai_image.jpg"
 
 def image_to_base64(image_path):
     with open(image_path, "rb") as img_file:
