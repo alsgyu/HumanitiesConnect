@@ -67,6 +67,7 @@ LangChain의 Retrieval-Augmented Generation 시스템을 확장하여 Few-Shot P
    streamlit run main.py
    
 ### Streamlit을 활용한 배포
+화면 확대 비율을 90%로 맞춰주시면 더욱 깔끔하게 이용하실 수 있습니다.
 - https://alsgyu-humanitiesconnect.streamlit.app/
 
 현재 pinecone과 streamlit간의 연동 오류가 있어 원활한 실행이 되지 않습니다. 계속해서 수정해나가겠습니다.
