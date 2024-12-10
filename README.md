@@ -36,14 +36,20 @@ LangChain의 Retrieval-Augmented Generation 시스템을 확장하여 Few-Shot P
 
 ---
 ## 활용된 오프소스
-다양한 오픈소스 기술을 기반으로 구현되었습니다.
+여러 오픈소스 기술을 기반으로 구현되었습니다.
 
-- Hugging FaceTransformers: 한국어 감정 분석 모델을 파인튜닝하고 감정 상태를 분석하는 데 사용되었습니다.
-- LangChain: 대화 흐름 설계와 Retrieval-Augmented Generation 시스템의 확장을 통해 공감 기반의 대화를 생성할 수 있었습니다.
-- Pinecone: 대규모 벡터 데이터베이스를 사용하여 인문학 자료를 검색하고 적합한 자료를 찾아 사용자에게 추천하였습니다.
-- OpenAI API: OpenAI를 활용하여 대화의 자연스러움과 응답의 품질을 개선하였습니다.
-- Streamlit: 사용자 친화적인 UI/UX를 제공하기 위해 간결하고 직관적인 웹 인터페이스를 구현하였습니다.
-- beomi/KcBERT-base: HuggingFace의 한국어 모델로 한국어 감정 분석을 위한 파인튜닝 작업에 활용되었습니다.
+### Hugging FaceTransformers
+한국어 감정 분석 모델을 파인튜닝하고 감정 상태를 분석하기 위해 사용되었습니다.
+### LangChain
+대화 흐름 설계와 Retrieval-Augmented Generation 시스템의 확장을 통해 공감 기반의 대화를 생성할 수 있었습니다.
+### Pinecone
+대규모 벡터 데이터베이스를 사용하여 인문학 자료를 검색하고 적합한 자료를 찾아 사용자에게 추천하였습니다.
+### OpenAI API
+OpenAI를 활용하여 대화의 자연스러움과 응답의 품질을 개선하였습니다.
+### Streamlit
+사용자 친화적인 UI/UX를 제공하기 위해 간결하고 직관적인 웹 인터페이스를 구현하였습니다.
+### beomi/KcBERT-base
+HuggingFace의 한국어 모델로 한국어 감정 분석을 위한 파인튜닝 작업에 활용되었습니다.
 
 ---
 ## 설치 및 실행 방법
