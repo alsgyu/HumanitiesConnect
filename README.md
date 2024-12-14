@@ -69,22 +69,39 @@ OpenAI를 활용하여 대화의 자연스러움과 응답의 품질을 개선�
    python -m venv venv
    venv\Scripts\activate
 
-4. 필요 라이브러리 설치
+3. 필요 라이브러리 설치
    ```bash
    pip install -r requirements.txt
+
+4. Pinecone 인덱스 생성
+   
+   인문학 자료를 적재하기 위한 인덱스 생성 과정입니다.<br/>
+   ipynb 파일을 활용하여 인문학 자료인 inmoon.docx 파일을 적재합니다. <br/>
+   현재 프로젝트는 coscine Metrix, 3072 dementions로 인덱스를 설정하였습니다.<br/>
+   
+   <img src="https://github.com/user-attachments/assets/eccb5ce4-5d12-4a8d-967c-c6ee42471ca8" width="400" />
+
 5. 환경 변수 설정
+   
    ```bash
    PINECONE_API_KEY=your_pinecone_key
    OPENAI_API_KEY=your_openai_key
+
 6. 프로그램 실행
    ```bash
    streamlit run main.py
+   ```
+   
+7. 개인화 과정
+
+   적재문서 혹은 프롬프팅이나 ui을 수정하면서 더욱 사용자에게 맞는 프로그램으로 발전할 수 있습니다.
    
 ### Streamlit을 활용한 배포
-화면 확대 비율을 90%로 맞춰주시면 더욱 깔끔하게 이용하실 수 있습니다.
+
+Streamlit Cloud를 통해 미리 배포된 웹페이지로 직접 체험해보실 수 있습니다.<br/>
+화면 확대 비율을 90%로 맞춰주시면 더욱 깔끔하게 이용하실 수 있습니다!
 - https://alsgyu-humanitiesconnect.streamlit.app/
 
-현재 pinecone과 streamlit간의 연동 오류가 있어 원활한 실행이 되지 않습니다. 계속해서 수정해나가겠습니다.
 
 ### 프로젝트 구조
 ```
