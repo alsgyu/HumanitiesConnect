@@ -101,7 +101,7 @@ st.markdown(
 )
 
 st.markdown('<h1>함께 오늘을 이야기해 보아요</h1>', unsafe_allow_html=True)
-st.markdown('<h2>결코 감정에 정답을 찾지 않으셔도 돼요🌞.</h2>', unsafe_allow_html=True)
+st.markdown('<h2>감정에 정답을 찾지 않아도 돼요🌞.</h2>', unsafe_allow_html=True)
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
 st.markdown('<div class="post-it top-right">항상 파이팅!', unsafe_allow_html=True)
