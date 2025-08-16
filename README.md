@@ -2,7 +2,7 @@
 
 
 ## 프로젝트 주제선정 배경 및 소개
-- [alsgyu chat_humanity.pdf](https://github.com/user-attachments/files/18023472/alsgyu.chat_humanity.pdf)
+[alsgyu chat_humanity.pdf](https://github.com/user-attachments/files/18023472/alsgyu.chat_humanity.pdf)
 <br/>
 
 이 프로젝트는 강의 깃허브 코드를 기반으로 시작되었고, Streamlit을 기반으로 사용자 인터페이스가 설계되었습니다.<br/>
@@ -13,8 +13,7 @@
 ---
 ## 프로젝트의 목적
 
-기술적 도구를 인문학적 접근과 결합하여 사용자에게 정신적 도움 제공을 제공하고자 하였습니다. 
-이를 통해 인문학이 우리의 정신 건강에 긍정적인 영향을 미칠 수 있음을 보여주고 싶습니다.
+기술적 도구를 인문학적 접근과 결합하여 사용자에게 정신적 도움 제공을 제공하고자 하였습니다.
 <br/>
 
 ---
@@ -110,8 +109,8 @@ OpenAI를 활용하여 대화의 자연스러움과 응답의 품질을 개선�
 
 ### Streamlit Cloud를 활용한 배포 과정
 
-Streamlit Cloud를 통해 미리 배포된 웹페이지로 직접 체험해보실 수 있습니다.<br/>
-화면 확대 비율을 90%로 맞춰주시면 더욱 깔끔하게 이용하실 수 있습니다!
+Streamlit Cloud를 통해 미리 배포된 웹페이지로 직접 실행해볼 수 있습니다.<br/>
+
 - https://alsgyu-humanitiesconnect.streamlit.app/
 
 <br/>
@@ -179,8 +178,3 @@ Pinecone을 활용하여 인문학 자료를 효율적으로 사용할 수 있�
 
 ---
 
-## 프로젝트 기여
-이 프로젝트는 MIT License를 따르며, 누구나 자유롭게 사용, 수정, 배포할 수 있습니다. 프로젝트의 발전을 위해 여러분의 기여를 언제나 환영합니다!<br/>
-새로운 아이디어나 개선했으면 하는 부분이 있다면 GitHub Issues를 통해 알려주시거나, Pull Request를 보내주세요. 감사합니다.
-
----
