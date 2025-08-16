@@ -1,16 +1,13 @@
-# 마음의 길잡이: 감정 분석과 인문학적 공감을 통한 AI 솔루션
----
-## 프로젝트 개요
-이 프로젝트는 **LangChain** 오픈소스를 기반으로, 감정 분석 기능과 인문학적 통찰을 결합하여 공감 중심의 대화형 AI 시스템을 구현한 것입니다. 세밀한 감정 분석을 위해 Hugging Face 모델을 파인튜닝하였으며, 이를 통해 사용자의 감정을 보다 정확히 분석할 수 있습니다. 또한 Pinecone의 벡터 데이터베이스를 자료 적재에 활용함으로써, 인문학적 자료에 대한 고속 검색이 가능하며, 이를 통해 사용자에게 적합한 자료와 통찰을 실시간으로 제공합니다.
-<br/>
+# 감정 분석과 인문학적 공감을 통한 AI 솔루션
 
-#### 프로젝트 주제선정 배경 및 소개
+
+## 프로젝트 주제선정 배경 및 소개
 - [alsgyu chat_humanity.pdf](https://github.com/user-attachments/files/18023472/alsgyu.chat_humanity.pdf)
 <br/>
 
-이 프로젝트는 오픈소스를 기반으로 시작되었고, Streamlit을 기반으로 사용자 인터페이스가 설계되었습니다.<br/>
+이 프로젝트는 강의 깃허브 코드를 기반으로 시작되었고, Streamlit을 기반으로 사용자 인터페이스가 설계되었습니다.<br/>
 
-**오픈소스 출처** : https://github.com/jasonkang14/streamlit-korean-income-tax-rag<br/>
+**출처** : https://github.com/jasonkang14/streamlit-korean-income-tax-rag<br/>
 **활용 내용**: LangChain 및 Pinecone 기반 검색 시스템을 활용하였습니다.
 
 ---
